@@ -21,8 +21,8 @@ const IBMPlex = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "FantaCreate",
-  description: "AI-powered design tools for everyone",
+  title: "StockInfo",
+  description: "Stock information",
 };
 
 export default function RootLayout({

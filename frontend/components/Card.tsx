@@ -1,4 +1,4 @@
-import React, { JSX, SyntheticEvent } from "react";
+import React, { SyntheticEvent } from "react";
 import Link from "next/link";
 import { CompanySearch } from "@/types/company";
 import AddPortfolio from "./Portfolio/AddPortfolio";
@@ -9,27 +9,23 @@ interface Props {
   onPortfolioCreate: (e: SyntheticEvent) => void;
 }
 
-const Card: React.FC<Props> = ({
-  id,
-  searchResult,
-  onPortfolioCreate,
-}: Props): JSX.Element => {
+const Card = ({ id, searchResult, onPortfolioCreate }: Props) => {
   return (
     <div
-      className="flex flex-col items-center justify-between w-full p-6 bg-slate-100 rounded-lg"
+      className="flex flex-col items-center justify-center max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       key={id}
       id={id}
     >
       <Link
-        legacyBehavior
         href={`/company/${searchResult.symbol}/company-profile`}
+        className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
       >
-        <a className="font-bold text-center text-veryDarkViolet md:text-left">
-          {searchResult.name} ({searchResult.symbol})
-        </a>
+        {searchResult.name} ({searchResult.symbol})
       </Link>
-      <p className="text-veryDarkBlue">{searchResult.currency}</p>
-      <p className="font-bold text-veryDarkBlue">
+      <p className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-300">
+        {searchResult.currency}
+      </p>
+      <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
         {searchResult.exchangeShortName} - {searchResult.stockExchange}
       </p>
       <AddPortfolio
