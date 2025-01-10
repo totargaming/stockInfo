@@ -13,12 +13,11 @@ const Search = (props: Props) => {
   };
   return (
     <div>
-      <input
-        className="text-black"
-        value={search}
-        onChange={(e) => handleChange(e)}
-      ></input>
-      <button onClick={(e) => onClick(e)} />
+      <input value={search} onChange={(e) => handleChange(e)}></input>
+      <button
+        className="p-2 px-8 mt-2 rounded-lg bg-primary text-primary-foreground hover:opacity-70 focus:outline-none"
+        onClick={(e) => onClick(e)}
+      />
     </div>
   );
 };
