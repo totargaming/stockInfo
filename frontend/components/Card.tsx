@@ -12,7 +12,7 @@ interface Props {
 const Card = ({ id, searchResult, onPortfolioCreate }: Props) => {
   return (
     <div
-      className="flex flex-col items-center justify-center max-w-sm p-6 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      className="flex flex-col items-center justify-center max-w-sm p-6 m-4 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       key={id}
       id={id}
     >

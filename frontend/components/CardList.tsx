@@ -14,20 +14,21 @@ const handlePortfolioCreate = (e: SyntheticEvent) => {
 
 const CardList = ({ results }: Props) => {
   return (
-    <div className="flex flex-wrap align-center justify-center">
-      {results.map((result, index) => (
-        <div
-          key={index}
-          className="flex-1 m-2"
-          style={{ flexBasis: "calc(33.333% - 1em)" }}
-        >
+    <div className="flex flex-wrap justify-center">
+      {results.length > 0 ? (
+        results.map((result) => (
           <Card
-            id={index.toString()}
+            key={result.symbol}
+            id={result.symbol}
             searchResult={result}
-            onPortfolioCreate={handlePortfolioCreate}
+            onPortfolioCreate={(e) => handlePortfolioCreate(e)}
           />
-        </div>
-      ))}
+        ))
+      ) : (
+        <h1 className="text-2xl font-bold text-gray-700 dark:text-gray-300">
+          No results found
+        </h1>
+      )}
     </div>
   );
 };
