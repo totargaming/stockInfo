@@ -10,19 +10,37 @@ const Home = () => {
   const [search, setSearch] = useState<string>("");
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState<string>("");
+  const [debounceTimeout, setDebounceTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearch(value);
+
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+
+    const timeout = setTimeout(() => {
+      onSearchSubmit(value);
+    }, 500); // 500ms delay
+
+    setDebounceTimeout(timeout);
   };
 
-  const onClick = async (e: SyntheticEvent) => {
-    e.preventDefault();
-    const result = await searchCompanies(search);
+  const onSearchSubmit = async (searchValue: string) => {
+    const result = await searchCompanies(searchValue);
     if (typeof result === "string") {
       setServerError(result);
     } else if (Array.isArray(result)) {
       setSearchResult(result);
     }
+  };
+
+  const onPortfolioCreate = (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log(e);
   };
 
   useEffect(() => {
@@ -31,9 +49,16 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <Search onClick={onClick} search={search} handleChange={handleChange} />
+      <Search
+        onSearchSubmit={(e) => {
+          e.preventDefault();
+          onSearchSubmit(search);
+        }}
+        search={search}
+        handleSearchChange={handleSearchChange}
+      />
       {serverError && <h1 className="text-red-500">{serverError}</h1>}
-      <CardList results={searchResult} />
+      <CardList results={searchResult} onPortfolioCreate={onPortfolioCreate} />
     </div>
   );
 };

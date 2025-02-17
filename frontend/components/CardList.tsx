@@ -5,14 +5,10 @@ import { SyntheticEvent } from "react";
 
 interface Props {
   results: CompanySearch[];
+  onPortfolioCreate: (e: SyntheticEvent) => void;
 }
 
-const handlePortfolioCreate = (e: SyntheticEvent) => {
-  e.preventDefault();
-  console.log("Portfolio created");
-};
-
-const CardList = ({ results }: Props) => {
+const CardList = ({ results, onPortfolioCreate }: Props) => {
   return (
     <div className="flex flex-wrap justify-center">
       {results.length > 0 ? (
@@ -21,7 +17,7 @@ const CardList = ({ results }: Props) => {
             key={result.symbol}
             id={result.symbol}
             searchResult={result}
-            onPortfolioCreate={(e) => handlePortfolioCreate(e)}
+            onPortfolioCreate={(e) => onPortfolioCreate(e)}
           />
         ))
       ) : (
