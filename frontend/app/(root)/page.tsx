@@ -78,13 +78,13 @@ const Home = () => {
 
   return (
     <div className="flex flex-col md:flex-row h-screen">
-      <div className="w-full md:w-1/4 p-4 bg-gray-100 dark:bg-gray-800">
+      <div className="w-full md:w-1/5 flex flex-col items-center justify-start p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
         <ListPortfolio
           PortfolioValues={PortfolioValues}
           onPortfolioDelete={onPortfolioDelete}
         />
       </div>
-      <div className="w-full md:w-3/4 p-4">
+      <div className="w-full md:w-4/5 p-4">
         <Search
           onSearchSubmit={(e) => {
             e.preventDefault();

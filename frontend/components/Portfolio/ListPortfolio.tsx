@@ -7,11 +7,11 @@ interface Props {
 
 const ListPortfolio = ({ PortfolioValues, onPortfolioDelete }: Props) => {
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
+    <>
       <h2 className="text-xl font-bold text-gray-700 dark:text-gray-300 mb-4">
         My Portfolio
       </h2>
-      {PortfolioValues.length > 0 ? (
+      {PortfolioValues &&
         PortfolioValues.map((symbol) => (
           <div
             key={symbol}
@@ -25,13 +25,8 @@ const ListPortfolio = ({ PortfolioValues, onPortfolioDelete }: Props) => {
               Delete
             </button>
           </div>
-        ))
-      ) : (
-        <h1 className="text-2xl font-bold text-gray-700 dark:text-gray-300 text-center">
-          No portfolios found
-        </h1>
-      )}
-    </div>
+        ))}
+    </>
   );
 };
 
