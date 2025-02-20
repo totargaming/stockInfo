@@ -15,10 +15,11 @@ const Hero = () => {
             news.
           </p>
           <div className="mx-auto lg:mx-0">
-            <Link href="/get-started">
-              <p className="py-3 px-6 text-lg font-bold text-white bg-lightGreen rounded hover:opacity-70">
-                Get Started
-              </p>
+            <Link
+              href="/get_started"
+              className="py-3 px-6 text-lg font-bold text-dark bg-lightGreen rounded hover:opacity-70"
+            >
+              Get Started
             </Link>
           </div>
         </div>
