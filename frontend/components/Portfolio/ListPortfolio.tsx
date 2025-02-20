@@ -27,7 +27,7 @@ const ListPortfolio = ({ PortfolioValues, onPortfolioDelete }: Props) => {
           </div>
         ))
       ) : (
-        <h1 className="text-2xl font-bold text-gray-700 dark:text-gray-300">
+        <h1 className="text-2xl font-bold text-gray-700 dark:text-gray-300 text-center">
           No portfolios found
         </h1>
       )}

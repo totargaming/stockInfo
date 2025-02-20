@@ -20,13 +20,20 @@ const Card = ({ id, searchResult, onPortfolioCreate }: Props) => {
       <Link
         href={`/company/${searchResult.symbol}/company-profile`}
         className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden overflow-ellipsis whitespace-nowrap"
+        style={{ maxWidth: "100%" }} // Ensure the text does not overflow
       >
         {searchResult.name} ({searchResult.symbol})
       </Link>
-      <p className="mb-1 text-sm font-medium text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis whitespace-nowrap">
+      <p
+        className="mb-1 text-sm font-medium text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis whitespace-nowrap"
+        style={{ maxWidth: "100%" }}
+      >
         {searchResult.currency}
       </p>
-      <p className="mb-2 text-sm text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis whitespace-nowrap">
+      <p
+        className="mb-2 text-sm text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis whitespace-nowrap"
+        style={{ maxWidth: "100%" }}
+      >
         {searchResult.exchangeShortName} - {searchResult.stockExchange}
       </p>
       <AddPortfolio
