@@ -1,4 +1,5 @@
 import React from "react";
+import CardPortfolio from "./CardPorfolio";
 
 interface Props {
   PortfolioValues: string[];
@@ -13,18 +14,11 @@ const ListPortfolio = ({ PortfolioValues, onPortfolioDelete }: Props) => {
       </h2>
       {PortfolioValues &&
         PortfolioValues.map((symbol) => (
-          <div
+          <CardPortfolio
             key={symbol}
-            className="flex items-center justify-between w-full p-2 mb-2 bg-white dark:bg-gray-700 rounded-lg shadow-md"
-          >
-            <span className="text-gray-700 dark:text-gray-300">{symbol}</span>
-            <button
-              onClick={() => onPortfolioDelete(symbol)}
-              className="p-1 text-red-500 hover:text-red-700 focus:outline-none"
-            >
-              Delete
-            </button>
-          </div>
+            symbol={symbol}
+            onDelete={onPortfolioDelete}
+          />
         ))}
     </>
   );
