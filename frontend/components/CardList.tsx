@@ -8,7 +8,7 @@ interface Props {
   onPortfolioCreate: (e: SyntheticEvent) => void;
 }
 
-const CardList = ({ results, onPortfolioCreate }: Props) => {
+const CardList = ({ results = [], onPortfolioCreate }: Props) => {
   return (
     <div className="flex flex-wrap justify-center">
       {results.length > 0 ? (

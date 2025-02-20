@@ -12,20 +12,21 @@ interface Props {
 const Card = ({ id, searchResult, onPortfolioCreate }: Props) => {
   return (
     <div
-      className="flex flex-col items-center justify-center max-w-sm p-6 m-4 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+      className="flex flex-col items-center justify-between max-w-xs p-4 m-2 border border-gray-200 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
       key={id}
       id={id}
+      style={{ height: "200px" }} // Set a fixed height for the card
     >
       <Link
         href={`/company/${searchResult.symbol}/company-profile`}
-        className="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden overflow-ellipsis whitespace-nowrap"
       >
         {searchResult.name} ({searchResult.symbol})
       </Link>
-      <p className="mb-2 text-lg font-medium text-gray-700 dark:text-gray-300">
+      <p className="mb-1 text-sm font-medium text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis whitespace-nowrap">
         {searchResult.currency}
       </p>
-      <p className="mb-4 text-lg text-gray-700 dark:text-gray-300">
+      <p className="mb-2 text-sm text-gray-700 dark:text-gray-300 overflow-hidden overflow-ellipsis whitespace-nowrap">
         {searchResult.exchangeShortName} - {searchResult.stockExchange}
       </p>
       <AddPortfolio
