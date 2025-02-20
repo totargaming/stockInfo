@@ -8,8 +8,11 @@ interface Props {
 
 const Search = ({ onSearchSubmit, search, handleSearchChange }: Props) => {
   return (
-    <div className="flex flex-col items-center justify-center mb-8">
-      <form onSubmit={onSearchSubmit} className="flex flex-col items-center">
+    <>
+      <form
+        onSubmit={onSearchSubmit}
+        className="flex flex-row items-center justify-center mb-8 gap-2"
+      >
         <input
           value={search}
           onChange={handleSearchChange}
@@ -18,12 +21,12 @@ const Search = ({ onSearchSubmit, search, handleSearchChange }: Props) => {
         />
         <button
           type="submit"
-          className="p-2 px-8 mt-2 rounded-lg bg-primary text-primary-foreground hover:opacity-70 focus:outline-none"
+          className="p-2 rounded-lg bg-primary text-primary-foreground hover:opacity-70 focus:outline-none"
         >
           Search
         </button>
       </form>
-    </div>
+    </>
   );
 };
 
