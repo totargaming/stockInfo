@@ -6,9 +6,8 @@ import Search from "@/components/Search";
 import { searchCompanies } from "@/app/api/api";
 import { CompanySearch } from "@/types/company";
 import ListPortfolio from "@/components/Portfolio/ListPortfolio";
-import Navbar from "@/components/NavBar";
 
-const Dashboard = () => {
+const SearchPage = () => {
   const [search, setSearch] = useState<string>("");
   const [PortfolioValues, setPortfolioValues] = useState<string[]>([]);
   const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
@@ -105,7 +104,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navbar />
       <div className="flex flex-col md:flex-row h-screen">
         <div className="w-full md:w-1/5 flex flex-col items-center justify-start p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
           <ListPortfolio
@@ -152,4 +150,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default SearchPage;

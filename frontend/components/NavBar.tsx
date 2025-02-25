@@ -3,14 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
+  // !TODO: change SearchPage to sth else
   return (
     <nav className="relative container mx-auto p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Image src="/logo.png" width={40} height={40} alt="Logo" />
+          <Link href="/">
+            <Image src="/logo.png" width={40} height={40} alt="Logo" />
+          </Link>
           <div className="hidden font-bold lg:flex space-x-4">
-            <Link href="/dashboard" className="text-black hover:text-darkBlue">
-              Dashboard
+            <Link href="/searchpage" className="text-black hover:text-darkBlue">
+              SearchPage
             </Link>
             <Link href="/about" className="text-black hover:text-darkBlue">
               About
