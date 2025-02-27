@@ -1,5 +1,6 @@
-import { CompanySearch } from "@/types/company";
+import { CompanyProfile, CompanySearch } from "@/types/company";
 import axios from "axios";
+import { cp } from "fs";
 
 interface SearchResponse {
   data: CompanySearch[];
@@ -24,5 +25,17 @@ export const searchCompanies = async (
       console.log("An unexpected error occurred");
       return [];
     }
+  }
+};
+
+export const getCompanyProfile = async (query: string) => {
+  try {
+    const data = await axios.get<CompanyProfile[]>(
+      `https://financialmodelingprep.com/api/v3/profile/${query}?apikey=${process.env.NEXT_PUBLIC_API_KEY}`
+    );
+    return data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    console.log("Error message from api: ", error.message);
   }
 };

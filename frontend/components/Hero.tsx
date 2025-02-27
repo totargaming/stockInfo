@@ -16,7 +16,7 @@ const Hero = () => {
           </p>
           <div className="mx-auto lg:mx-0">
             <Link
-              href="/get_started"
+              href="/searchpage"
               className="py-3 px-6 text-lg font-bold text-dark bg-lightGreen rounded hover:opacity-70"
             >
               Get Started
