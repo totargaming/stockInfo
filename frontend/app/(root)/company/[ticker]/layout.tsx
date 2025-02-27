@@ -15,7 +15,7 @@ export default function CompanyLayout({
   return (
     <div className="w-full relative flex overflow-x-hidden">
       <Sidebar ticker={ticker} />
-      <Dashboard ticker={ticker}>{children}</Dashboard>
+      <Dashboard>{children}</Dashboard>
     </div>
   );
 }
