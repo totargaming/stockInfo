@@ -24,20 +24,36 @@ const IncomeStatement = ({ ticker }: Props) => {
   if (!company) return <div className="p-4">Loading income statement...</div>;
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">
+    <div className="p-4 bg-white rounded-lg shadow-lg">
+      <h1 className="text-3xl font-bold mb-4">
         Income Statement for {company.companyName}
       </h1>
-      <p className="mb-2">
-        <strong>Price:</strong> ${company.price}
-      </p>
-      <p className="mb-2">
-        <strong>Volume:</strong> {company.volume}
-      </p>
-      <p className="mb-2">
-        <strong>Change:</strong> {company.change} ({company.changePercentage}%)
-      </p>
-      {/* Add more income statement–related details as needed */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="font-semibold">Price:</p>
+          <p>${company.price}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Volume:</p>
+          <p>{company.volAvg}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Change:</p>
+          <p>{company.changes}%</p>
+        </div>
+        <div>
+          <p className="font-semibold">Market Cap:</p>
+          <p>${company.mktCap}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Last Dividend:</p>
+          <p>${company.lastDiv}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Beta:</p>
+          <p>{company.beta}</p>
+        </div>
+      </div>
     </div>
   );
 };

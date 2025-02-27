@@ -25,25 +25,54 @@ const CompanyProfile = ({ ticker }: Props) => {
   if (!company) return <div className="p-4">Loading profile...</div>;
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">{company.companyName}</h1>
-      <Image
-        src={company.image}
-        alt={company.companyName}
-        width={128}
-        height={128}
-        className="w-32 h-32 my-4"
-      />
-      <p className="mb-2">{company.description}</p>
-      <p className="mb-2">
-        <strong>CEO:</strong> {company.ceo}
-      </p>
-      <p className="mb-2">
-        <strong>Price:</strong> ${company.price}
-      </p>
-      <p className="mb-2">
-        <strong>Market Cap:</strong> ${company.mktCap}
-      </p>
+    <div className="p-4 bg-white rounded-lg shadow-lg">
+      <div className="flex items-center mb-4">
+        <Image
+          src={company.image}
+          alt={company.companyName}
+          width={128}
+          height={128}
+          className="w-32 h-32 rounded-full"
+        />
+        <div className="ml-4">
+          <h1 className="text-3xl font-bold">{company.companyName}</h1>
+          <p className="text-gray-600">{company.industry}</p>
+        </div>
+      </div>
+      <p className="mb-4">{company.description}</p>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="font-semibold">CEO:</p>
+          <p>{company.ceo}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Price:</p>
+          <p>${company.price}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Market Cap:</p>
+          <p>${company.mktCap}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Volume:</p>
+          <p>{company.volAvg}</p>
+        </div>
+        <div>
+          <p className="font-semibold">Change:</p>
+          <p>{company.changes}%</p>
+        </div>
+        <div>
+          <p className="font-semibold">Website:</p>
+          <a
+            href={company.website}
+            className="text-blue-500"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {company.website}
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
