@@ -18,7 +18,7 @@ const Card = ({ id, searchResult, onPortfolioCreate }: Props) => {
       style={{ width: "250px", height: "200px" }} // Set fixed width and height for the card
     >
       <Link
-        href={`/company/${searchResult.symbol}`}
+        href={`/company/${searchResult.symbol}/profile`}
         className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white overflow-hidden overflow-ellipsis whitespace-nowrap"
         style={{ maxWidth: "100%" }} // Ensure the text does not overflow
       >
