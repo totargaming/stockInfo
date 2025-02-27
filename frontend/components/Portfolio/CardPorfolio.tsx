@@ -10,7 +10,7 @@ const CardPortfolio = ({ symbol, onDelete }: Props) => {
   return (
     <div className="flex items-center justify-between w-full p-2 mb-2 bg-white dark:bg-gray-700 rounded-lg shadow-md">
       <Link
-        href={`/company/${symbol}`}
+        href={`/company/${symbol}/profile`}
         className="text-gray-700 dark:text-gray-300"
       >
         {symbol}
